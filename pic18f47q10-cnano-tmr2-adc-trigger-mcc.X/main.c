@@ -47,9 +47,9 @@
 
 volatile uint16_t adcVal;
 
-static void ADCC_Interrupt_by_TMR2(void);
+static void ADCC_Interrupt(void);
 
-static void ADCC_Interrupt_by_TMR2(void)
+static void ADCC_Interrupt(void)
 {
     /* Toggle LED0 at the Timer2Period frequency */
     LED0_Toggle();
@@ -61,7 +61,7 @@ void main(void)
     // Initialize the device
     SYSTEM_Initialize();
     
-    ADCC_SetADIInterruptHandler(ADCC_Interrupt_by_TMR2);
+    ADCC_SetADIInterruptHandler(ADCC_Interrupt);
             
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
